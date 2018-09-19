@@ -1,4 +1,4 @@
-package co.kavinvin.mobilehealthyapp
+package co.kavinvin.mobilehealthyapp.adapters
 
 import android.support.v4.app.Fragment
 import android.support.v7.widget.RecyclerView

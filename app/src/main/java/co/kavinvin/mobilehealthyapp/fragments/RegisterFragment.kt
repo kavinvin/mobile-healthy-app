@@ -1,10 +1,13 @@
-package co.kavinvin.mobilehealthyapp
+package co.kavinvin.mobilehealthyapp.fragments
 
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import co.kavinvin.mobilehealthyapp.R
+import co.kavinvin.mobilehealthyapp.utils.goTo
+import co.kavinvin.mobilehealthyapp.utils.toaster
 import com.google.firebase.auth.FirebaseAuth
 import kotlinx.android.synthetic.main.fragment_register.*
 
@@ -25,9 +28,9 @@ class RegisterFragment : Fragment() {
             val confirmationPassword = registration_confirmation_password.text.toString()
             when {
                 listOf(email, password, confirmationPassword).any { it.isEmpty() } ->
-                    toast("All fields are required")
-                password.length < 6 -> toast("Password must be longer than 6 characters")
-                password != confirmationPassword -> toast("Both password must be matched")
+                    toaster().requireAllFieldsToast.show()
+                password.length < 6 -> toaster().passwordTooShortToast.show()
+                password != confirmationPassword -> toaster().passwordNotMatchToast.show()
                 else -> register(email, password)
             }
         }
@@ -40,10 +43,10 @@ class RegisterFragment : Fragment() {
                     it.user.sendEmailVerification()
                     auth.signOut()
                     goTo(LoginFragment())
-                    toast("Registration success!")
+                    toaster().registrationSuccessToast.show()
                 }
                 .addOnFailureListener {
-                    toast(it.message ?: "Unknown error.")
+                    toaster().maybeUnknownErrorToast(it.message).show()
                 }
     }
 

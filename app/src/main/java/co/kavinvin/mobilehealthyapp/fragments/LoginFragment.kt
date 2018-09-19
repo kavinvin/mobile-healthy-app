@@ -1,12 +1,14 @@
-package co.kavinvin.mobilehealthyapp
+package co.kavinvin.mobilehealthyapp.fragments
 
 import android.os.Bundle
 import android.support.v4.app.Fragment
-import android.util.Log
 import android.view.LayoutInflater
-import android.view.Menu
 import android.view.View
 import android.view.ViewGroup
+import co.kavinvin.mobilehealthyapp.R
+import co.kavinvin.mobilehealthyapp.utils.goTo
+import co.kavinvin.mobilehealthyapp.utils.toast
+import co.kavinvin.mobilehealthyapp.utils.toaster
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.android.synthetic.main.fragment_login.*
@@ -24,12 +26,11 @@ class LoginFragment : Fragment() {
         login_login_button.setOnClickListener {
             val email = login_email.text.toString()
             val password = login_password.text.toString()
-            login(email, password)
 
-//            when {
-//                listOf(email, password).any { it.isEmpty() } -> toast("All fields are required")
-//                else -> login(email, password)
-//            }
+            when {
+                listOf(email, password).any { it.isEmpty() } -> toast("All fields are required")
+                else -> login(email, password)
+            }
         }
 
         login_register_button.setOnClickListener {
@@ -41,15 +42,15 @@ class LoginFragment : Fragment() {
         auth.signInWithEmailAndPassword(email, password)
                 .addOnSuccessListener {
                     if (it.user.isEmailVerified) {
-                        toast("Login success.")
+                        toaster().loginSuccessToast.show()
                         goTo(MenuFragment())
                     } else {
-                        toast("Please verify your email.")
+                        toaster().verifyEmailToast.show()
                         auth.signOut()
                     }
                 }
                 .addOnFailureListener {
-                    toast(it.message ?: "Unknown error.")
+                    toast(it.message ?: "Unknown error")
                 }
 //        db.collection("history")
 //                .document("ayxyTVfLhS20bO9XGLrc")
