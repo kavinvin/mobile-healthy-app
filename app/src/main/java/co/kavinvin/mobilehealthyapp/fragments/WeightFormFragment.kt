@@ -8,10 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import co.kavinvin.mobilehealthyapp.R
 import co.kavinvin.mobilehealthyapp.models.Weight
-import co.kavinvin.mobilehealthyapp.utils.formatDate
-import co.kavinvin.mobilehealthyapp.utils.setFragment
-import co.kavinvin.mobilehealthyapp.utils.toast
-import co.kavinvin.mobilehealthyapp.utils.toaster
+import co.kavinvin.mobilehealthyapp.utils.*
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.android.synthetic.main.fragment_weight_form.*
@@ -33,7 +30,7 @@ class WeightFormFragment : Fragment() {
 
     private fun updateLabel() {
         date = calendar.time
-        weight_form_date.setText(formatDate("dd MMMM yyyy")(calendar.time))
+        weight_form_date.setText(longDateFormat(calendar.time))
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
@@ -61,7 +58,7 @@ class WeightFormFragment : Fragment() {
             db.collection("myfitness")
                     .document(auth.currentUser!!.uid)
                     .collection("weight")
-                    .document(formatDate("yyyy-MM-dd")(date))
+                    .document(shortDateFormat(date))
                     .set(Weight(weight, date))
                     .addOnSuccessListener {
                         toast("Success")

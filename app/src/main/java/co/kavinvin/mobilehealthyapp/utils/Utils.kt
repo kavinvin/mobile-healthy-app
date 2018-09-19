@@ -39,3 +39,6 @@ fun readDate(format: String): (String) -> Date {
     val formatter = SimpleDateFormat(format, Locale.US)
     return { formatter.parse(it) }
 }
+
+val longDateFormat = formatDate("dd MMMM yyyy")
+val shortDateFormat = formatDate("yyyy-MM-dd")
