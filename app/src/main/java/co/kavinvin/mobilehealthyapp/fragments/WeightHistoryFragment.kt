@@ -52,7 +52,7 @@ class WeightHistoryFragment : Fragment() {
                     fetchSuccess()
                 }
                 .addOnFailureListener {
-                    toaster().maybeUnknownErrorToast(it.message)
+                    toaster().maybeUnknownErrorToast(it.message).show()
                 }
     }
 

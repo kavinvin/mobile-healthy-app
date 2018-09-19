@@ -43,8 +43,10 @@ class MenuFragment : Fragment() {
     private val auth = FirebaseAuth.getInstance()
 
     private val menuList = arrayListOf(
-            MenuItem(LoginFragment(), "Log out"),
+            MenuItem(BmiFragment(), "Calculate BMI"),
             MenuItem(WeightHistoryFragment(), "Weight history"),
-            MenuItem(WeightFormFragment(), "Add weight record"))
+            MenuItem(WeightFormFragment(), "Add weight record"),
+            MenuItem(LoginFragment(), "Log out")
+    )
 
 }

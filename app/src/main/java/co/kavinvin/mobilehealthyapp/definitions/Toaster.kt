@@ -5,7 +5,7 @@ import android.widget.Toast
 
 class Toaster(private val context: Context?) {
 
-    val requireAllFieldsToast = createToast("All fields are required")
+    val requireAllFieldsToast = createToast("Please specify all fields")
     val loginSuccessToast = createToast("Login success")
     val verifyEmailToast = createToast("Please verify your email")
     val registrationSuccessToast = createToast("Registration success")
