@@ -10,22 +10,21 @@ import co.kavinvin.mobilehealthyapp.models.Weight
 import co.kavinvin.mobilehealthyapp.utils.longDateFormat
 import kotlinx.android.synthetic.main.fragment_weight_history_item.view.*
 
-class HistoryAdapter(val histories: List<Weight>) : RecyclerView.Adapter<HistoryAdapter.HistoryHolder>() {
+class HistoryAdapter(private val histories: List<Weight>) : RecyclerView.Adapter<HistoryAdapter.HistoryHolder>() {
 
     class HistoryHolder(val view: View) : RecyclerView.ViewHolder(view) {
-
         fun bind(weight: Weight, befWeight: Weight) {
             view.apply {
                 weight_history_item_weight.text = weight.weight.toString()
                 weight_history_item_date.text = longDateFormat(weight.date)
                 weight_history_item_status.apply {
-                    val opts: Pair<String, Int> = when {
+                    val note: Pair<String, Int> = when {
                         weight.weight > befWeight.weight -> "Increase" to ContextCompat.getColor(context, R.color.UP)
                         weight.weight < befWeight.weight -> "Decrease" to ContextCompat.getColor(context, R.color.DOWN)
-                        else -> "" to ContextCompat.getColor(context, R.color.UP)
+                        else -> "Equal" to ContextCompat.getColor(context, R.color.UP)
                     }
-                    text = opts.first
-                    setTextColor(opts.second)
+                    text = note.first
+                    setTextColor(note.second)
                 }
             }
         }
@@ -46,8 +45,8 @@ class HistoryAdapter(val histories: List<Weight>) : RecyclerView.Adapter<History
     }
 
     override fun onBindViewHolder(holder: HistoryHolder, pos: Int) {
-        if (pos != histories.size-1) {
-            holder.bind(histories[pos], histories[pos+1])
+        if (pos != histories.size - 1) {
+            holder.bind(histories[pos], histories[pos + 1])
         } else {
             holder.bind(histories[pos])
         }
