@@ -10,7 +10,7 @@ import android.view.ViewGroup
 import co.kavinvin.mobilehealthyapp.R
 import co.kavinvin.mobilehealthyapp.adapters.MenuAdapter
 import co.kavinvin.mobilehealthyapp.adapters.MenuItem
-import co.kavinvin.mobilehealthyapp.utils.goTo
+import co.kavinvin.mobilehealthyapp.utils.setFragment
 import com.google.firebase.auth.FirebaseAuth
 import kotlinx.android.synthetic.main.fragment_menu.*
 
@@ -21,7 +21,7 @@ class MenuFragment : Fragment() {
             if (menuItem.name == "Log out") {
                 auth.signOut()
             }
-            goTo(menuItem.fragment)
+            setFragment(menuItem.fragment)
         }
         linearLayoutManager = LinearLayoutManager(context)
         divider = DividerItemDecoration(context, linearLayoutManager.orientation)

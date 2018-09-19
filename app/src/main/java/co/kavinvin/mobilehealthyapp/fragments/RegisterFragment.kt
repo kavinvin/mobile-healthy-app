@@ -6,7 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import co.kavinvin.mobilehealthyapp.R
-import co.kavinvin.mobilehealthyapp.utils.goTo
+import co.kavinvin.mobilehealthyapp.utils.setFragment
 import co.kavinvin.mobilehealthyapp.utils.toaster
 import com.google.firebase.auth.FirebaseAuth
 import kotlinx.android.synthetic.main.fragment_register.*
@@ -42,7 +42,7 @@ class RegisterFragment : Fragment() {
                 .addOnSuccessListener {
                     it.user.sendEmailVerification()
                     auth.signOut()
-                    goTo(LoginFragment())
+                    setFragment(LoginFragment())
                     toaster().registrationSuccessToast.show()
                 }
                 .addOnFailureListener {

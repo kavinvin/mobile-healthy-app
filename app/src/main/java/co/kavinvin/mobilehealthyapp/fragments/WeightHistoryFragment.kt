@@ -11,12 +11,10 @@ import android.view.ViewGroup
 import co.kavinvin.mobilehealthyapp.R
 import co.kavinvin.mobilehealthyapp.adapters.HistoryAdapter
 import co.kavinvin.mobilehealthyapp.models.Weight
-import co.kavinvin.mobilehealthyapp.utils.goTo
+import co.kavinvin.mobilehealthyapp.utils.setFragment
 import co.kavinvin.mobilehealthyapp.utils.toaster
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
-import io.vavr.collection.List
-import kotlinx.android.synthetic.main.fragment_weight_form.*
 import kotlinx.android.synthetic.main.fragment_weight_history.*
 import java.util.*
 
@@ -37,7 +35,7 @@ class WeightHistoryFragment : Fragment() {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        weight_history_back_button.setOnClickListener { goTo(WeightFormFragment()) }
+        weight_history_back_button.setOnClickListener { setFragment(WeightFormFragment()) }
 
         db.collection("myfitness")
                 .document(auth.currentUser!!.uid)

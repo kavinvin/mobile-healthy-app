@@ -9,7 +9,7 @@ import android.view.ViewGroup
 import co.kavinvin.mobilehealthyapp.R
 import co.kavinvin.mobilehealthyapp.models.Weight
 import co.kavinvin.mobilehealthyapp.utils.formatDate
-import co.kavinvin.mobilehealthyapp.utils.goTo
+import co.kavinvin.mobilehealthyapp.utils.setFragment
 import co.kavinvin.mobilehealthyapp.utils.toast
 import co.kavinvin.mobilehealthyapp.utils.toaster
 import com.google.firebase.auth.FirebaseAuth
@@ -48,7 +48,7 @@ class WeightFormFragment : Fragment() {
                     calendar.get(Calendar.DAY_OF_MONTH)).show()
         }
         weight_form_back_button.setOnClickListener {
-            goTo(MenuFragment())
+            setFragment(MenuFragment())
         }
         weight_form_save_button.setOnClickListener {
             val weight = weight_form_weight.text.toString().toDoubleOrNull()

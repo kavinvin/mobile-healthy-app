@@ -6,7 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import co.kavinvin.mobilehealthyapp.R
-import co.kavinvin.mobilehealthyapp.utils.goTo
+import co.kavinvin.mobilehealthyapp.utils.setFragment
 import co.kavinvin.mobilehealthyapp.utils.toast
 import co.kavinvin.mobilehealthyapp.utils.toaster
 import com.google.firebase.auth.FirebaseAuth
@@ -34,7 +34,7 @@ class LoginFragment : Fragment() {
         }
 
         login_register_button.setOnClickListener {
-            activity!!.goTo(RegisterFragment())
+            activity!!.setFragment(RegisterFragment())
         }
     }
 
@@ -43,7 +43,7 @@ class LoginFragment : Fragment() {
                 .addOnSuccessListener {
                     if (it.user.isEmailVerified) {
                         toaster().loginSuccessToast.show()
-                        goTo(MenuFragment())
+                        setFragment(MenuFragment())
                     } else {
                         toaster().verifyEmailToast.show()
                         auth.signOut()

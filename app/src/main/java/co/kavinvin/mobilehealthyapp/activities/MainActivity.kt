@@ -5,28 +5,22 @@ import android.support.v7.app.AppCompatActivity
 import co.kavinvin.mobilehealthyapp.R
 import co.kavinvin.mobilehealthyapp.fragments.LoginFragment
 import co.kavinvin.mobilehealthyapp.fragments.MenuFragment
+import co.kavinvin.mobilehealthyapp.utils.setFragment
 import com.google.firebase.auth.FirebaseAuth
 
 class MainActivity : AppCompatActivity() {
 
-    val auth = FirebaseAuth.getInstance()
+    private val auth = FirebaseAuth.getInstance()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        auth.currentUser?.also {
-            supportFragmentManager
-                    .beginTransaction()
-                    .replace(R.id.main_view, MenuFragment())
-                    .commit()
-            return
+        if (auth.currentUser == null) {
+            setFragment(LoginFragment())
+        } else {
+            setFragment(MenuFragment())
         }
-
-        supportFragmentManager
-                .beginTransaction()
-                .replace(R.id.main_view, LoginFragment())
-                .commit()
     }
 
 }
