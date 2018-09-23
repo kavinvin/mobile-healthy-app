@@ -35,7 +35,7 @@ class WeightHistoryFragment : Fragment() {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        weight_history_back_button.setOnClickListener { setFragment(WeightFormFragment()) }
+        weight_history_back_button.setOnClickListener { setFragment(MenuFragment()) }
 
         db.collection("myfitness")
                 .document(auth.currentUser!!.uid)
