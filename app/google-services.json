@@ -1,0 +1,73 @@
+{
+  "project_info": {
+    "project_number": "251070965318",
+    "firebase_url": "https://android-806df.firebaseio.com",
+    "project_id": "android-806df",
+    "storage_bucket": "android-806df.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:251070965318:android:3ffd13aa519874a9",
+        "android_client_info": {
+          "package_name": "co.kavinvin.healthy"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "251070965318-dm29d060l8f1adtut9j0gcg147lkdu49.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAK-GXPDdYFbwnuOu9ROS8nP9nOGdUxKwg"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:251070965318:android:6b90fcbcff1dbeb2",
+        "android_client_info": {
+          "package_name": "co.kavinvin.mobilehealthyapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "251070965318-dm29d060l8f1adtut9j0gcg147lkdu49.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAK-GXPDdYFbwnuOu9ROS8nP9nOGdUxKwg"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
