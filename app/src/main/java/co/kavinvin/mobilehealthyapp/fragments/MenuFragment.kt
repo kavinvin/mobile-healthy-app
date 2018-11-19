@@ -46,7 +46,9 @@ class MenuFragment : Fragment() {
             MenuItem(BmiFragment(), "Calculate BMI"),
             MenuItem(WeightHistoryFragment(), "Weight history"),
             MenuItem(WeightFormFragment(), "Add weight record"),
-            MenuItem(LoginFragment(), "Log out")
+            MenuItem(LoginFragment(), "Log out"),
+            MenuItem(PostFragment(), "Post"),
+            MenuItem(CommentFragment(), "Comment")
     )
 
 }
