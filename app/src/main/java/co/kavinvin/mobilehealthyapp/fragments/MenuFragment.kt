@@ -47,8 +47,7 @@ class MenuFragment : Fragment() {
             MenuItem(WeightHistoryFragment(), "Weight history"),
             MenuItem(WeightFormFragment(), "Add weight record"),
             MenuItem(LoginFragment(), "Log out"),
-            MenuItem(PostFragment(), "Post"),
-            MenuItem(CommentFragment(), "Comment")
+            MenuItem(PostFragment(), "Posts")
     )
 
 }
